@@ -32,10 +32,8 @@ public class Calculator {
         System.out.println(rslMultiply);
         int rslMinus = minus(8);
         System.out.println(rslMinus);
-        Calculator calcDivide = new Calculator();
-        int rslDivide = calcDivide.divide(40);
-        System.out.println(calcDivide.divide(40));
-        Calculator sumAll = new Calculator();
-        System.out.println(sumAll.sumAllOperation(9, rslSum, rslMultiply, rslMinus, rslDivide));
+        int rslDivide = calculator.divide(40);
+        System.out.println(calculator.divide(40));
+        System.out.println(calculator.sumAllOperation(9, rslSum, rslMultiply, rslMinus, rslDivide));
     }
 }
