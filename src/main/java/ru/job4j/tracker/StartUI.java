@@ -11,5 +11,6 @@ public class StartUI {
         DateTimeFormatter formatter = DateTimeFormatter.ofPattern("dd-MMMM-EEEE-yyyy HH:mm:ss");
         String rslFormat = rsl.format(formatter);
         System.out.println("Вывод на консоль - " + rslFormat);
+        System.out.println(item);
     }
 }
