@@ -48,6 +48,16 @@ public class StartUI {
                 } else {
                     System.out.println("Заявки с таким id не существует.");
                 }
+            } else if (select == 4) {
+                System.out.println("=====Find by id menu=====");
+                System.out.println("Введите номер id заявки, которую вы хотите найти");
+                int id = Integer.parseInt(scanner.nextLine());
+                if (tracker.findById(id) == null) {
+                    System.out.println("Заявки с таким id не существует.");
+                } else {
+                    Item item = tracker.findById(id);
+                    System.out.println("Заявка с требуемым id: " + item);
+                }
             } else if (select == 6) {
                 run = false;
             }
@@ -70,5 +80,4 @@ public class StartUI {
         Scanner scanner = new Scanner(System.in);
         new StartUI().init(scanner, tracker);
     }
-
 }
