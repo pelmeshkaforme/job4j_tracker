@@ -17,6 +17,16 @@ public class StartUI {
                 Item item = new Item(name);
                 tracker.add(item);
                 System.out.println("Добавления заявка - " + item);
+            } else if (select == 1) {
+                System.out.println("=====Menu show all items=====");
+                Item[] items = tracker.findAll();
+                if (items.length == 0) {
+                    System.out.println("Пока еще нет ни одной заявки");
+                } else {
+                    for (int i = 0; i < items.length; i++) {
+                    System.out.println(items[i]);
+                    }
+                }
             } else if (select == 6) {
                 run = false;
             }
