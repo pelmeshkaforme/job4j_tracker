@@ -10,9 +10,14 @@ public class StartUI {
             showMenu();
             System.out.println("Введите номер пункта меню");
             int select = Integer.parseInt(scanner.nextLine());
-            if (select != 6) {
-                System.out.println("Пользователь ввел - " + select);
-            } else {
+            if (select == 0) {
+                System.out.println("=====Add item menu=====");
+                System.out.println("Fill item name");
+                String name = scanner.nextLine();
+                Item item = new Item(name);
+                tracker.add(item);
+                System.out.println("Добавления заявка - " + item);
+            } else if (select == 6) {
                 run = false;
             }
         }
