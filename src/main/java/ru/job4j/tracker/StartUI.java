@@ -70,4 +70,5 @@ public class StartUI {
         Scanner scanner = new Scanner(System.in);
         new StartUI().init(scanner, tracker);
     }
+
 }
