@@ -15,4 +15,5 @@ public class VehiclesSummary {
             vehicles[i].price();
         }
     }
+
 }
