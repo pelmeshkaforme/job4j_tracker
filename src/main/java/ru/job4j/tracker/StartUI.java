@@ -27,6 +27,18 @@ public class StartUI {
                     System.out.println(items[i]);
                     }
                 }
+            } else if (select == 2) {
+                System.out.println("=====Edit item menu=====");
+                System.out.println("Введите id заявки, которую вы хотите изменить");
+                int id = Integer.parseInt(scanner.nextLine());
+                System.out.println("Введите новое имя заявки, которую вы хотите изменить");
+                String name = scanner.nextLine();
+                Item item = new Item(id, name);
+                if (tracker.replace(id, item)) {
+                System.out.println("Имя заявки с id " + id + " успешно изменено на " + name);
+                } else {
+                    System.out.println("Заявки с введенным ид не существует");
+                }
             } else if (select == 6) {
                 run = false;
             }
