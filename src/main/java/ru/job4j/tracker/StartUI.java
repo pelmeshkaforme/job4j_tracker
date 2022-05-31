@@ -41,7 +41,7 @@ public class StartUI {
                 }
             } else if (select == 3) {
                 System.out.println("=====Delete item menu=====");
-                System.out.println("Введите номер id, которое требуется удалить");
+                System.out.print("Введите номер id, которое требуется удалить");
                 int id = Integer.parseInt(scanner.nextLine());
                 if (tracker.delete(id)) {
                     System.out.println("Заявка с id " + id + " успешно удалена.");
