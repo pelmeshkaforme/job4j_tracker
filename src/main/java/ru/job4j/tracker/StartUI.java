@@ -8,7 +8,7 @@ public class StartUI {
         boolean run = true;
         while (run) {
             showMenu();
-            System.out.println("Введите номер пункта меню");
+            System.out.print("Введите номер пункта меню");
             int select = Integer.parseInt(scanner.nextLine());
             if (select == 0) {
                 System.out.println("=====Add item menu=====");
