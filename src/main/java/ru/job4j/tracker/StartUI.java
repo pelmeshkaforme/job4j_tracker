@@ -12,7 +12,7 @@ public class StartUI {
             int select = Integer.parseInt(scanner.nextLine());
             if (select == 0) {
                 System.out.println("=====Add item menu=====");
-                System.out.println("Fill item name");
+                System.out.print("Fill item name");
                 String name = scanner.nextLine();
                 Item item = new Item(name);
                 tracker.add(item);
