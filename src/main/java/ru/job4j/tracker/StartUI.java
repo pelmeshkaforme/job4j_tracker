@@ -29,9 +29,9 @@ public class StartUI {
                 }
             } else if (select == 2) {
                 System.out.println("=====Edit item menu=====");
-                System.out.println("Введите id заявки, которую вы хотите изменить");
+                System.out.print("Введите id заявки, которую вы хотите изменить");
                 int id = Integer.parseInt(scanner.nextLine());
-                System.out.println("Введите новое имя заявки, которую вы хотите изменить");
+                System.out.print("Введите новое имя заявки, которую вы хотите изменить");
                 String name = scanner.nextLine();
                 Item item = new Item(id, name);
                 if (tracker.replace(id, item)) {
