@@ -2,17 +2,43 @@ package ru.job4j.tracker;
 
 public class StartUI {
 
+    public static void createItem(Input input, Tracker tracker) {
+        System.out.println("=====Add item menu=====");
+        String name = input.askStr("Fill item name");
+        Item item = new Item(name);
+        tracker.add(item);
+        System.out.println("Добавления заявка - " + item);
+    }
+
+    public static void editItem(Input input, Tracker tracker) {
+        System.out.println("=====Edit item menu=====");
+        int id = Integer.parseInt(input.askStr("Введите id заявки, которую вы хотите изменить"));
+        String name = input.askStr("Введите новое имя заявки, которую вы хотите изменить");
+        Item item = new Item(id, name);
+        if (tracker.replace(id, item)) {
+            System.out.println("Имя заявки с id " + id + " успешно изменено на " + name);
+        } else {
+            System.out.println("Заявки с введенным ид не существует");
+        }
+    }
+
+    public static void deleteItem(Input input, Tracker tracker) {
+        System.out.println("=====Delete item menu=====");
+        int id = Integer.parseInt(input.askStr("Введите номер id, которое требуется удалить"));
+        if (tracker.delete(id)) {
+            System.out.println("Заявка с id " + id + " успешно удалена.");
+        } else {
+            System.out.println("Заявки с таким id не существует.");
+        }
+    }
+
     public void init(Input input, Tracker tracker) {
         boolean run = true;
         while (run) {
             showMenu();
             int select = Integer.parseInt(input.askStr("Введите номер пункта меню"));
             if (select == 0) {
-                System.out.println("=====Add item menu=====");
-                String name = input.askStr("Fill item name");
-                Item item = new Item(name);
-                tracker.add(item);
-                System.out.println("Добавления заявка - " + item);
+                StartUI.createItem(input, tracker);
             } else if (select == 1) {
                 System.out.println("=====Menu show all items=====");
                 Item[] items = tracker.findAll();
@@ -24,23 +50,9 @@ public class StartUI {
                     }
                 }
             } else if (select == 2) {
-                System.out.println("=====Edit item menu=====");
-                int id = Integer.parseInt(input.askStr("Введите id заявки, которую вы хотите изменить"));
-                String name = input.askStr("Введите новое имя заявки, которую вы хотите изменить");
-                Item item = new Item(id, name);
-                if (tracker.replace(id, item)) {
-                System.out.println("Имя заявки с id " + id + " успешно изменено на " + name);
-                } else {
-                    System.out.println("Заявки с введенным ид не существует");
-                }
+                StartUI.editItem(input, tracker);
             } else if (select == 3) {
-                System.out.println("=====Delete item menu=====");
-                int id = Integer.parseInt(input.askStr("Введите номер id, которое требуется удалить"));
-                if (tracker.delete(id)) {
-                    System.out.println("Заявка с id " + id + " успешно удалена.");
-                } else {
-                    System.out.println("Заявки с таким id не существует.");
-                }
+                StartUI.deleteItem(input, tracker);
             } else if (select == 4) {
                 System.out.println("=====Find by id menu=====");
                 int id = Integer.parseInt(input.askStr("Введите номер id заявки, которую вы хотите найти"));
