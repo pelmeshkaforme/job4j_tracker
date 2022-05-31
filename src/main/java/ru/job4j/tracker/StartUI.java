@@ -12,7 +12,7 @@ public class StartUI {
 
     public static void editItem(Input input, Tracker tracker) {
         System.out.println("=====Edit item menu=====");
-        int id = Integer.parseInt(input.askStr("Введите id заявки, которую вы хотите изменить"));
+        int id = input.askInt("Введите id заявки, которую вы хотите изменить");
         String name = input.askStr("Введите новое имя заявки, которую вы хотите изменить");
         Item item = new Item(id, name);
         if (tracker.replace(id, item)) {
@@ -24,7 +24,7 @@ public class StartUI {
 
     public static void deleteItem(Input input, Tracker tracker) {
         System.out.println("=====Delete item menu=====");
-        int id = Integer.parseInt(input.askStr("Введите номер id, которое требуется удалить"));
+        int id = input.askInt("Введите номер id, которое требуется удалить");
         if (tracker.delete(id)) {
             System.out.println("Заявка с id " + id + " успешно удалена.");
         } else {
@@ -36,7 +36,7 @@ public class StartUI {
         boolean run = true;
         while (run) {
             showMenu();
-            int select = Integer.parseInt(input.askStr("Введите номер пункта меню"));
+            int select = input.askInt("Введите номер пункта меню");
             if (select == 0) {
                 StartUI.createItem(input, tracker);
             } else if (select == 1) {
@@ -55,7 +55,7 @@ public class StartUI {
                 StartUI.deleteItem(input, tracker);
             } else if (select == 4) {
                 System.out.println("=====Find by id menu=====");
-                int id = Integer.parseInt(input.askStr("Введите номер id заявки, которую вы хотите найти"));
+                int id = input.askInt("Введите номер id заявки, которую вы хотите найти");
                 Item item = tracker.findById(id);
                 if (item == null) {
                     System.out.println("Заявки с таким id не существует.");
