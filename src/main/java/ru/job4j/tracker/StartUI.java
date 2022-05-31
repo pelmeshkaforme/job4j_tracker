@@ -23,8 +23,8 @@ public class StartUI {
                 if (items.length == 0) {
                     System.out.println("Пока еще нет ни одной заявки");
                 } else {
-                    for (int i = 0; i < items.length; i++) {
-                    System.out.println(items[i]);
+                    for (Item item : items) {
+                    System.out.println(item);
                     }
                 }
             } else if (select == 2) {
