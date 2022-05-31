@@ -59,7 +59,7 @@ public class StartUI {
                     System.out.println("Заявка с требуемым id: " + item);
                 }
             } else if (select == 5) {
-                System.out.println("=====Finde by name menu=====");
+                System.out.println("=====Find by name menu=====");
                 System.out.print("Введите имя заявки, которое вы хотите найти");
                 String name = scanner.nextLine();
                 Item[] names = tracker.findByName(name);
