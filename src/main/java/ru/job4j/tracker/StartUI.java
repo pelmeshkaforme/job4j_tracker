@@ -50,12 +50,12 @@ public class StartUI {
                 }
             } else if (select == 4) {
                 System.out.println("=====Find by id menu=====");
-                System.out.println("Введите номер id заявки, которую вы хотите найти");
+                System.out.print("Введите номер id заявки, которую вы хотите найти");
                 int id = Integer.parseInt(scanner.nextLine());
-                if (tracker.findById(id) == null) {
+                Item item = tracker.findById(id);
+                if (item == null) {
                     System.out.println("Заявки с таким id не существует.");
                 } else {
-                    Item item = tracker.findById(id);
                     System.out.println("Заявка с требуемым id: " + item);
                 }
             } else if (select == 5) {
