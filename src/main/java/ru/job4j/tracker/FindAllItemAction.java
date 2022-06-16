@@ -14,13 +14,13 @@ public class FindAllItemAction implements UserAction {
 
     @Override
     public boolean execute(Input input, Tracker tracker) {
-        System.out.println("=====Show all items menu=====");
+        out.println("=====Show all items menu=====");
         Item[] items = tracker.findAll();
         if (items.length == 0) {
-            System.out.println("Пока еще нет ни одной заявки.");
+            out.println("Пока еще нет ни одной заявки.");
         } else {
             for (Item item : items) {
-                System.out.println(item);
+                out.println(item);
             }
         }
         return true;

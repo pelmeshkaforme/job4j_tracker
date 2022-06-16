@@ -14,14 +14,14 @@ public class EditItemAction implements UserAction {
 
     @Override
     public boolean execute(Input input, Tracker tracker) {
-        System.out.println("=====Edit item menu=====");
+        out.println("=====Edit item menu=====");
         int id = input.askInt("Enter id for edit: ");
         String name = input.askStr("Enter new name: ");
         Item item = new Item(id, name);
         if (tracker.replace(id, item)) {
-            System.out.println("Имя заявки с id " + id + " успешно изменено на " + name + ".");
+            out.println("Имя заявки с id " + id + " успешно изменено на " + name + ".");
         } else {
-            System.out.println("Заявки с таким id не существует.");
+            out.println("Заявки с таким id не существует.");
         }
         return true;
     }
