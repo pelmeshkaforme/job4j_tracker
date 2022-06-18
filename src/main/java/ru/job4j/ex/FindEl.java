@@ -15,11 +15,28 @@ public class FindEl {
         return rsl;
     }
 
+    public static boolean send(String value, String[] abuses) throws ElementAbuseException {
+        boolean rsl = true;
+        for (int i = 0; i < abuses.length; i++) {
+            if (abuses[i].equals(value)) {
+                rsl = false;
+                throw new ElementAbuseException("Element from abuse list");
+            }
+        }
+        return rsl;
+    }
+
     public static void main(String[] args) {
         String[] words = {"Table", "Chair", "Window", "Sky"};
+        String[] abuses = {"Sky"};
         try {
-            indexOf(words, "sky");
-        } catch (ElementNotFoundException e) {
+            indexOf(words, "Sky");
+            send("Sky", abuses);
+        } catch (ElementAbuseException ea) {
+            ea.printStackTrace();
+        } catch (ElementNotFoundException en) {
+            en.printStackTrace();
+        } catch (Exception e) {
             e.printStackTrace();
         }
     }
