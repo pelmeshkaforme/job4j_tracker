@@ -340,4 +340,33 @@ public class StartUITest {
                         + "1.Exit" + ln
         ));
     }
+
+    @Test
+    public void whenInvalidEnterMenuNumber() {
+        Output output = new StubOutput();
+        Tracker tracker = new Tracker();
+        Input in = new StubInput(
+                new String[] {"3", "0", "New item name", "1"}
+        );
+        UserAction[] actions = {
+                new CreateAction(output),
+                new ExitAction()
+        };
+        new StartUI(output).init(in, tracker, actions);
+        String ln = System.lineSeparator();
+        assertThat(output.toString(), is(
+                "Menu:" + ln
+                + "0.Add new Item" + ln
+                + "1.Exit" + ln
+                + "Wrong input, you can select: from 0 to " + (actions.length - 1) + ln
+                + "Menu:" + ln
+                + "0.Add new Item" + ln
+                + "1.Exit" + ln
+                + "=====Add item menu=====" + ln
+                + "Добавлена заявка: " + tracker.findAll()[0] + ln
+                + "Menu:" + ln
+                + "0.Add new Item" + ln
+                + "1.Exit" + ln
+        ));
+    }
 }
