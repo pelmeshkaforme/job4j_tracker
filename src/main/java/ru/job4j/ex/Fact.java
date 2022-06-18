@@ -6,7 +6,7 @@ public class Fact {
             throw new IllegalArgumentException("Number must be 1 or more.");
         }
         int rsl = 1;
-        for (int i = 1; i <= number; i++) {
+        for (int i = 2; i <= number; i++) {
             rsl = rsl * i;
         }
         return rsl;
